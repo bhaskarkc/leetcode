@@ -1,0 +1,47 @@
+package main
+
+func NewNode(cur, next, prev int) Node {
+    return Node{prev, cur, next}
+}
+
+type Node struct {
+    cur int
+    prev int
+    next int
+}
+
+func circularNodes(n []int) (nodes []Node) {
+    l := len(n)
+    if (l == 1) {
+        return []Node{{0, n[0], 0}}
+    }
+
+    for i, v := range n {
+        var prev int
+        var next int
+        
+        cur := v
+
+        nextIdx := i+1
+        if nextIdx >= l {
+            nextIdx = 0
+        }
+
+        if nextIdx < l {
+            next = n[nextIdx]
+        }
+
+        prevIdx := i-1
+        if prevIdx < 0 {
+            prevIdx = l + prevIdx
+        }
+
+        if prevIdx <= l {
+            prev = n[prevIdx]
+        }
+
+        nodes = append(nodes, NewNode(cur,next, prev))
+    }
+
+    return nodes
+}
