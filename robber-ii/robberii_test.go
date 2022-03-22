@@ -10,31 +10,31 @@ import (
 
 
 func TestRob(t *testing.T) {
-	t.Parallel()
+    t.Parallel()
 
-	type fields struct {
+    type fields struct {
         houses []int
-	}
+    }
 
-	type want struct {
+    type want struct {
         money int
     }
 
-	testTable := map[string]struct {
-		Fields fields
-		Want   want
-	}{
+    testTable := map[string]struct {
+        Fields fields
+        Want   want
+    }{
         "2_3" : {
-        	Fields: fields{ houses: []int{2,3}},
-        	Want: want{3},
+            Fields: fields{ houses: []int{2,3}},
+            Want: want{3},
         },
         "1_2_3" : {
             Fields: fields{houses: []int{1,2,3}},
             Want: want{3},
         },
         "3_2_3" : {
-        	Fields: fields{ houses: []int{3,2,3}},
-        	Want: want{3},
+            Fields: fields{ houses: []int{3,2,3}},
+            Want: want{3},
         },
         "2_3_2" : {
             Fields: fields{houses: []int{2,3,2}},
@@ -50,11 +50,11 @@ func TestRob(t *testing.T) {
         },
     }
 
-	for name, tt := range testTable {
-		tt := tt
+    for name, tt := range testTable {
+        tt := tt
 
-		t.Run(name, func(t *testing.T) {
-			t.Parallel()
+        t.Run(name, func(t *testing.T) {
+            t.Parallel()
             m := robberii.Rob(tt.Fields.houses)
             assert.Equal(t, m, tt.Want.money)
         })
