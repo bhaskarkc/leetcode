@@ -44,6 +44,10 @@ func TestRob(t *testing.T) {
             Fields: fields{houses: []int{1,2,3,1}},
             Want: want{4},
         },
+        "[1,3,1,3,100]" : {
+            Fields: fields{houses: []int{1,3,1,3,100}},
+            Want: want{103},
+        },
     }
 
 	for name, tt := range testTable {

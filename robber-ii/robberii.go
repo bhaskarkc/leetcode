@@ -27,18 +27,13 @@ func Rob(nums []int) int {
     return max(x,y)
 }
 
-func robAlternate(houses []int) int {
-    if len(houses) < 3 {
-        return Rob(houses)
+func robAlternate(nums []int) int {
+    var money, rob1, rob2 int
+    for _, m := range nums {
+        money = max(rob1 + m, rob2)
+        rob1 = rob2
+        rob2 = money
     }
-
-    var money int
-    for i, m := range houses {
-        if i%2 == 0 {
-            money += m
-        }   
-    }
-
     return money
 }
 
@@ -46,6 +41,5 @@ func max(x, y int) int {
     if x > y {
         return x
     }
-
     return y
 }
