@@ -1,4 +1,6 @@
-# Leetcode Solutions in Go
+# Leetcode Solutions
+
+Solution of Leetcode problems in Go
 
 ## Pre-requisite
 
@@ -6,6 +8,6 @@
 
 ### Test
 
-`go test <package>/`
+`cd` into folder and run the test command.
 
->>>>>>> ef71c84 (initial commit)
+`go test .` or `go test ./<package_name>`
